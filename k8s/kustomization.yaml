@@ -1,0 +1,15 @@
+kind: Kustomization
+secretGenerator:
+- name: mysql-pass
+  literals:
+  - password=MySqlDatabasePassword
+- name: bareos-pass
+  literals:
+  - password=BareosFiledaemonPassword
+
+resources:
+  - ingress.yaml
+  - mysql.yaml
+  - wordpress.yaml
+
+

@@ -1,0 +1,18 @@
+Director {
+  Name = "@DIR_NAME@"
+  Password = "@DIR_PASSWORD@"
+  Address = "@DIR_ADDRESS@"
+  ConnectionFromDirectorToClient = Yes
+  ConnectionFromClientToDirector = Yes
+}
+
+FileDaemon {
+  Name = "@CLIENT_NAME@"
+  Plugin Directory = /usr/lib64/bareos/plugins/
+}
+
+Messages {
+  Name = "Standard"
+  director = @DIR_NAME@ = all,!skipped,!restored
+  stdout = all
+}

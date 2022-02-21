@@ -1,0 +1,4 @@
+[client]
+host=@MYSQL_DB_HOST@
+user=@MYSQL_DB_USER@
+password=@MYSQL_DB_PASSWORD@
