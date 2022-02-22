@@ -25,7 +25,7 @@ We also assume that you have an existing setup of Bareos director and storage da
 7. Test the Ingress by opening `http://<your-minikube-ip>` in your browser. You should see an error message stating "404 Not Found" as we don't have any application deployed yet.
 
 ## Building the Bareos Filedaemon image
-1. Run `minikube image build container-image/` to build the container image and deploy it to your minikube.
+1. Run `minikube image build  -t bareos-fd container-image/` to build the container image and deploy it to your minikube.
 
 ## Deploy to Kubernetes
 1. In `k8s/wordpress.yaml` set `DIR_ADDRESS` to the address of your Bareos director.
