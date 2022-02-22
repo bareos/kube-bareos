@@ -4,6 +4,8 @@ This is the step-by-step guide to reproduce our test setup.
 
 ## Test Environment
 Our test environment consists of a machine running Red Hat Enterprise Linux 8 (x86_64) with a graphical environment and a browser to work with Wordpress later on. When using a different system changes may be needed.
+The driver we use for minikube will fetch disk images and create a KVM-based virtual machine. For that you will need at least 2 GB of free memory and around 10 GB of free diskspace in your home-directory.
+
 We also assume that you have an existing setup of Bareos director and storage daemon and that these are accessible from your test-machine.
 
 ## Configure `libvirt`
