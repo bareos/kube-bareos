@@ -38,7 +38,7 @@ We also assume that you have an existing setup of Bareos director and storage da
 3. Regularly check `status dir` for the client initiated connection. This may take up to one minute.
 
 ## Backup and restore operation
-1. Go to `http://<your-minikube-ip>`. Finish wordpress installation.
+1. Go to `http://<your-minikube-ip>`. Finish the Wordpress installation.
 2. Run the `wordpress` job in Bareos.
 3. Do some changes in your Blog
 4. Restore the `wordpress` job using Bareos. Your changes are now gone.
