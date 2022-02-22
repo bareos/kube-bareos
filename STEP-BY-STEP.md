@@ -42,7 +42,7 @@ We also assume that you have an existing setup of Bareos director and storage da
 1. Go to `http://<your-minikube-ip>`. Finish the Wordpress installation.
 2. Run the `wordpress` job in Bareos.
 3. Do some changes in your Blog
-4. Restore the `wordpress` job using Bareos. Your changes are now gone.
+4. Restore the `wordpress` job using Bareos to the original directories (where = /). Your changes are now gone.
 5. Nuke the Kubernetes application using `minikube kubectl -- delete -k k8s/`.
 6. Redeploy the application with `minikube kubectl -- apply -k k8s/`.
 7. Go back to `http://<your-minikube-ip>`. The Wordpress installer should greet you again.
