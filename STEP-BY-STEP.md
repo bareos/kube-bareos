@@ -25,6 +25,8 @@ We also assume that you have an existing setup of Bareos Director and Storage Da
 6. Install NGINX Ingress into minikube so we can access our web-service later: `minikube addons enable ingress`.
 7. Test the Ingress by opening `http://<your-minikube-ip>` in your browser. You should see an error message stating "404 Not Found" as we don't have any application deployed yet.
 
+You can use `minikube dashboard` to get a Dashboard where you can see what minikube is doing and for example to restart a deployment.
+
 ## Building the Bareos Filedaemon image
 1. Run `minikube image build -t bareos-fd container-image/` to build the container image and deploy it to your minikube.
 
