@@ -71,7 +71,7 @@ spec:
         - name: CLIENT_NAME
           value: wordpress-fd
         - name: DIR_ADDRESS
-          value: 192.168.122.191
+          value: 192.168.39.1
         - name: DIR_PASSWORD
           valueFrom:
             secretKeyRef:
