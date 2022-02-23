@@ -3,10 +3,10 @@
 This is the step-by-step guide to reproduce our test setup.
 
 ## Test Environment
-Our test environment consists of a machine running Red Hat Enterprise Linux 8 (x86_64) with a graphical environment and a browser to work with Wordpress later on. When using a different system changes may be needed.
+This guide has been tested with Red Hat Enterprise Linux 8 (x86_64) and Fedora 35 (x86_64) with a graphical environment and a browser to work with Wordpress later on.
 The driver we use for minikube will fetch disk images and create a KVM-based virtual machine. For that you will need at least 2 GB of free memory and around 10 GB of free diskspace in your home-directory.
 
-We also assume that you have an existing setup of Bareos director and storage daemon and that these are accessible from your test-machine.
+We also assume that you have an existing setup of Bareos Director and Storage Daemon and that these are accessible from your test-machine.
 
 ## Configure `libvirt`
 1. Install virtualization packages using `sudo dnf install @virt`
@@ -29,13 +29,13 @@ We also assume that you have an existing setup of Bareos director and storage da
 1. Run `minikube image build -t bareos-fd container-image/` to build the container image and deploy it to your minikube.
 
 ## Deploy to Kubernetes
-1. In `k8s/wordpress.yaml` set `DIR_ADDRESS` to the address of your Bareos director.
+1. In `k8s/wordpress.yaml` set `DIR_ADDRESS` to the address of your Bareos Director.
 2. If desired change passwords in `k8s/kustomization.yaml` and in `bareos-dir.d/client/wordpress.conf`.
 3. Deploy application with `minikube kubectl -- apply -k k8s/`. This will take some time to finish.
 4. Open `http://<your-minikube-ip>` in your browser again. Eventually you should see the Wordpress installer.
 
 ## Configuring Bareos
-1. Add the files from `bareos-dir.d` to your director's configuration.
+1. Add the files from `bareos-dir.d` to your Director's configuration.
 2. Reload the configuration
 3. Regularly check `status dir` for the client initiated connection. This may take up to one minute.
 
@@ -49,3 +49,5 @@ We also assume that you have an existing setup of Bareos director and storage da
 7. Go back to `http://<your-minikube-ip>`. The Wordpress installer should greet you again.
 8. Restore using Bareos again. Your Blog should be back to where it was when you took the Backup!
 
+## Known issues
+During testing the MySQL POD sometimes did not start up correctly, leaving Wordpress unable to connect to its database. Restarting the MySQL POD usually fixes this.
